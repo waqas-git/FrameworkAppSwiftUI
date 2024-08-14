@@ -10,15 +10,18 @@ import SwiftUI
 struct ListviewConent: View {
     @StateObject var viewModel = FrameworkGridViewModel()
     var body: some View {
-        NavigationView{
+        NavigationStack{
             List{
                 ForEach(MockData.frameworks){ framework in
-                    NavigationLink(destination: FrameworkDetailView(framework: framework, isShowingDetailview: $viewModel.isShowingDetailView)){
+                    NavigationLink(value: framework) {
                         FrameworkTitleView(framework: framework)
                     }
                 }
             }
             .navigationTitle("Framework")
+            .navigationDestination(for: Framework.self) { framework in
+                FrameworkDetailView(framework: framework)
+            }
         }
         .accentColor(Color(.label))
     }

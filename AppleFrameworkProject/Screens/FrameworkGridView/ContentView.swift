@@ -24,7 +24,7 @@ struct ContentView: View {
             }
             .navigationTitle("Framework")
             .fullScreenCover(isPresented: $viewModel.isShowingDetailView){
-                FrameworkDetailView(framework: viewModel.selectedFramework!, isShowingDetailview: $viewModel.isShowingDetailView)
+//                FrameworkDetailView(framework: viewModel.selectedFramework!, isShowingDetailview: $viewModel.isShowingDetailView)
             }
         }
     }
